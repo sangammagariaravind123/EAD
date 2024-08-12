@@ -1,10 +1,10 @@
 import express from 'express'
 import mongoose from 'mongoose'
-import router from './Routes/Aliens.js'
+import router from './Routes/Controller.js'
 
 const app = express()
 
-mongoose.connect("mongodb://localhost:27017/EAD",).then(()=>{
+mongoose.connect("mongodb://localhost:27020,localhost:27021,localhost:27022/cbit?replicaSet=m101",).then(()=>{
     console.log("DB Connected");
 }).catch((e)=>{
     console.log(e);
