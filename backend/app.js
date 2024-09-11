@@ -4,7 +4,7 @@ import router from './Routes/Controller.js'
 
 const app = express()
 
-mongoose.connect("mongodb://localhost:27020,localhost:27021,localhost:27022/cbit?replicaSet=m101",).then(()=>{
+mongoose.connect("mongodb://localhost:27017/backend").then(()=>{
     console.log("DB Connected");
 }).catch((e)=>{
     console.log(e);
