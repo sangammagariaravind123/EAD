@@ -1,0 +1,22 @@
+body {
+  background-color: rgb(74, 74, 90);
+}
+* {
+  text-transform: uppercase;
+}
+.timetable {
+  font-size: 14px;
+  text-align: center;
+  border: 3px solid black;
+  margin-top: 30px;
+}
+.timetable th,
+.timetable td {
+  border: 3px solid black;
+  padding: 10px;
+}
+.lunch-break {
+  writing-mode: vertical-rl;
+  text-align: center;
+  font-weight: bold;
+}
