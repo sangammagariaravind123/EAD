@@ -1,13 +1,17 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
+import "bootstrap/dist/js/bootstrap.bundle.min.js";
+
 const Timetable = () => {
   return (
     <>
       <table className="table table-bordered timetable">
         <thead>
           <tr>
-            <th rowSpan="2">Period</th>
+            <th rowSpan={2}>Period</th>
             <th>I</th>
             <th>II</th>
             <th>III</th>
@@ -33,15 +37,15 @@ const Timetable = () => {
           </tr>
           <tr>
             <th>Monday</th>
-            <td>CT Lab (B1) / ML Lab (B2)</td>
+            <td colSpan={2}>CT Lab (B1) / ML Lab (B2)</td>
             <td>PE-2</td>
             <td>CN</td>
             <td>EAD</td>
             <td>SE</td>
-            <td>CN Lab (B1) / EAD Lab (B2)</td>
           </tr>
           <tr>
             <th>Tuesday</th>
+            <td colSpan={2}>CN Lab (B1) / EAD Lab (B2)</td>
             <td>PE-2</td>
             <td>ML</td>
             <td>EAD</td>
