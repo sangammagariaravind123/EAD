@@ -1,34 +1,23 @@
 const express = require("express");
 require("dotenv").config();
 const jwt = require("jsonwebtoken");
-
 const app = express();
+
 app.use(express.json());
 
 app.post("/login", async (req, res) => {
   const { name, password } = req.body;
 
-  // Validate name and password
-  if (!name || !password) {
-    return res.status(400).json({ error: "Name and password are required" });
-  }
-
-  // Generate JWT token
-  const token = jwt.sign({ name, password }, process.env.SECRET_KEY, {
-    expiresIn: "1h",
-  });
+  const token = jwt.sign({ name, password }, process.env.SECRET_KEY);
   res.json({ token });
 });
 
 const verify = async (req, res, next) => {
-  const authHeader = req.headers.authorization;
+  const token = req.headers.authorization?.split(" ")[1];
 
-  // Check if token is provided
-  if (!authHeader) {
-    return res.status(401).json({ error: "Authorization token required" });
+  if (!token) {
+    return res.status(403).json({ error: "Token is required" });
   }
-
-  const token = authHeader.split(" ")[1];
 
   try {
     const data = jwt.verify(token, process.env.SECRET_KEY);
